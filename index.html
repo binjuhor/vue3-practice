@@ -10,44 +10,32 @@
 </head>
 <body class="h-full grid place-items-center">
     <div id="app">
-        <section v-if="inprogressAssignments.length">
-            <h2 class="font-bold mb-2">Inprogress</h2>
-            <ul>
-                <li v-for="assignment in inprogressAssignments" :key="assignment.id">
-                    <label class="cursor-pointer">{{ assignment.name }}</label>
-                    <input class="ml-2" type="checkbox" v-model="assignment.complete" />
-                </li>
-            </ul>
-        </section>
-
-        <section class="mt-8" v-if="completedAssignments.length">
-            <h2 class="font-bold mb-2">Completed</h2>
-            <ul>
-                <li v-for="assignment in completedAssignments" :key="assignment.id">
-                    <label class="cursor-pointer">{{ assignment.name }}</label>
-                    <input class="ml-2" type="checkbox" v-model="assignment.complete" />
-                </li>
-            </ul>
-        </section>
+        <div class="flex gap-3">
+            <app-button>Hello</app-button>
+            <app-button>VueJs</app-button>
+        </div>
     </div>
     
     <script type="module">
         let app = {
-            data() {
-                return {
-                    assignments: [
-                        {name: 'Finish Project', complete: false, id: 1},
-                        {name: 'Read chapter 4', complete: false, id: 2},
-                        {name: 'Turn in homework', complete: false, id: 3}
-                    ]
-                }
-            },
-            computed: {
-                inprogressAssignments() {
-                    return this.assignments.filter(a => !a.complete)
-                },
-                completedAssignments() {
-                    return this.assignments.filter(a => a.complete)
+            components: {
+                'app-button': {
+                    template: `
+                        <button 
+                            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded cursor-pointer"
+                            :disabled="processing"
+                        >
+                            <slot/>
+                        </button>
+                    `,
+                    mounted() {
+                        console.log('Mounted');
+                    },
+                    data() {
+                        return {
+                            processing: true
+                        }
+                    },
                 }
             }
         }
