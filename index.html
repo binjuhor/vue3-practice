@@ -6,25 +6,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://unpkg.com/vue@3"></script>
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @keyframes spinner {
+            to {transform: rotate(360deg);}
+        }
+
+        
+        .is-loading:before {
+            content: '';
+            box-sizing: border-box;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 20px;
+            height: 20px;
+            margin-top: -10px;
+            margin-left: -10px;
+            border-radius: 50%;
+            border: 2px solid #ccc;
+            border-top-color: #000;
+            animation: spinner .6s linear infinite;
+        }
+
+        .is-loading {
+            color: transparent;
+        }
+    </style>
     <title>A VueJs app</title>
 </head>
 <body class="h-full grid place-items-center">
     <div id="app">
         <div class="flex gap-3">
-            <app-button>Hello</app-button>
+            <app-button processing>Hello</app-button>
             <app-button>VueJs</app-button>
         </div>
     </div>
     
     <script type="module">
-        import AppButton from './js/components/AppButton.js';
-        let app = {
-            components: {
-                'app-button': AppButton
-            }
-        }
-
-        Vue.createApp(app).mount('#app');
+       import App from "./js/components/App.js";
+        Vue.createApp(App).mount('#app');
     </script>
 </body>
 </html>
