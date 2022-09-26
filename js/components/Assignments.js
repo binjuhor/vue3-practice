@@ -1,10 +1,12 @@
 import AssignmentList from './AssignmentList.js';
 import AssignmentCreate from './AssignmentCreate.js';
+import Panel from './Panel.js';
 
 export default  {
     components: {
         AssignmentList,
-        AssignmentCreate
+        AssignmentCreate,
+        Panel
     },
     template: `
         <div class="flex gap-8">

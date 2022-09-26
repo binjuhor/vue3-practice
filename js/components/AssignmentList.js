@@ -21,11 +21,11 @@ export default {
                 :initial-tags="assignments.map(a => a.tag)"
             />
 
-            <ul class="border border-gray-600 divide-y divide-gray-600 mt-6">
+            <ul class="border border-gray-600 divide-y divide-gray-600 mt-6 mb-2">
                 <assignment v-for="assignment in filteredAssignments" :key="assignment.id" :assignment="assignment" />
             </ul>
 
-            <slot></slot>
+            <slot />
         </section>
     `,
     props: {
