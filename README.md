@@ -9,6 +9,10 @@ Practice with VueJs and TailwindCSS new version
 - VueJs
 - TailwindCSS CDN
 
+## How to use
+- Run `yarn` to install dependencies.
+- Run `yarn start` to run this project. 
+
 ## Contact
 
 Hoang Kiem - kiemhd@outlook.com
